@@ -1,0 +1,418 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap");
+
+/* ===================================
+   RESET Y CONFIGURACIÓN BASE
+=================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  background: #0f172a;
+  background-image:
+    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.18) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.18) 0px, transparent 50%);
+  min-height: 100vh;
+  padding: 40px 20px;
+  color: #f8fafc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===================================
+   CONTENEDOR Y HEADER
+=================================== */
+
+.container {
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.header h1 {
+  font-family: "Fredoka", cursive, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+}
+
+.header p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* ===================================
+   TARJETA PRINCIPAL (GLASSMORPHISM)
+=================================== */
+
+.card {
+  background: rgba(30, 41, 59, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.card h2 {
+  font-family: "Fredoka", cursive, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #f1f5f9;
+}
+
+/* ===================================
+   FORMULARIO E INPUTS
+=================================== */
+
+label {
+  font-family: "Fredoka", cursive, sans-serif;
+  display: block;
+  margin-top: 18px;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #a5f3fc;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 14px 16px;
+  font-size: 0.95rem;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  background: rgba(15, 23, 42, 0.6);
+  color: #f8fafc;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 18px;
+  padding-right: 44px;
+}
+
+select option {
+  background: #1e293b;
+  color: #f8fafc;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #64748b;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+  background: rgba(15, 23, 42, 0.85);
+}
+
+textarea {
+  min-height: 140px;
+  resize: vertical;
+  max-width: 100%;
+}
+
+/* ===================================
+   TRANSICIÓN ENTRE MODOS
+=================================== */
+
+#opcionesCifrado {
+  transition:
+    opacity 0.3s ease,
+    max-height 0.4s ease,
+    transform 0.3s ease;
+  overflow: hidden;
+}
+
+.oculto {
+  opacity: 0;
+  max-height: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+}
+
+.visible {
+  opacity: 1;
+  max-height: 300px;
+  transform: translateY(0);
+}
+
+/* ===================================
+   BOTÓN PRINCIPAL CON EFECTO GLOW
+=================================== */
+
+button {
+  font-family: "Fredoka", cursive, sans-serif;
+  position: relative;
+  width: 100%;
+  margin-top: 28px;
+  border: none;
+  border-radius: 16px;
+  padding: 16px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  color: #ffffff;
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.35);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  z-index: 1;
+  overflow: hidden;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(168, 85, 247, 0.6) 0%,
+    rgba(99, 102, 241, 0.4) 40%,
+    transparent 70%
+  );
+  opacity: 0;
+  transform: scale(0.5);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+  z-index: -1;
+  pointer-events: none;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 12px 28px rgba(99, 102, 241, 0.5),
+    0 0 20px rgba(168, 85, 247, 0.4);
+}
+
+button:hover::before {
+  opacity: 1;
+  transform: scale(1);
+  animation: pulseGlow 2s infinite alternate ease-in-out;
+}
+
+button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+}
+
+/* ===================================
+   SECCIÓN Y CAJAS DE RESULTADOS
+=================================== */
+
+#resultado {
+  margin-top: 24px;
+  background: rgba(30, 41, 59, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 24px;
+  color: #e2e8f0;
+  animation: slideUp 0.4s ease-out forwards;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+#resultado h2 {
+  font-family: "Fredoka", cursive, sans-serif;
+  color: #818cf8;
+  font-size: 1.25rem;
+  margin-bottom: 14px;
+}
+
+#resultado h3 {
+  font-family: "Fredoka", cursive, sans-serif;
+  color: #a5f3fc;
+  font-size: 1.05rem;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+/* Corrección de cajas oscuras internas para evitar fondos blancos */
+#resultado div,
+#resultado .box,
+.resultado-caja {
+  background: rgba(15, 23, 42, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 16px 20px;
+  margin-top: 12px;
+  color: #f8fafc !important;
+}
+
+#resultado p,
+.resultado-caja p {
+  color: #cbd5e1 !important;
+  font-family: "Quicksand", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+pre {
+  background: #020617 !important;
+  color: #38bdf8 !important;
+  padding: 16px;
+  border-radius: 14px;
+  overflow-x: auto;
+  font-family: "Fira Code", "Consolas", monospace;
+  font-size: 0.875rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 10px;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* ===================================
+   TABLAS Y DETALLES
+=================================== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 14px;
+  border-radius: 12px;
+  overflow: hidden;
+  font-size: 0.9rem;
+}
+
+th {
+  font-family: "Fredoka", cursive, sans-serif;
+  background: rgba(99, 102, 241, 0.25);
+  color: #e0e7ff;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+}
+
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+details {
+  background: rgba(15, 23, 42, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 14px !important;
+  padding: 14px 18px !important;
+  margin-top: 12px;
+  color: #f8fafc !important;
+}
+
+summary {
+  cursor: pointer;
+  color: #818cf8 !important;
+  font-family: "Fredoka", cursive, sans-serif;
+  font-weight: 600;
+}
+
+/* ===================================
+   SCROLLBAR PERSONALIZADO
+=================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6366f1;
+}
+
+/* ===================================
+   ANIMACIONES
+=================================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(0.95) rotate(0deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.1) rotate(10deg);
+    opacity: 1;
+  }
+}

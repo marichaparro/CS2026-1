@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criptoanálisis Clásico</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Hoja de estilos -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Criptoanálisis Clásico</h1>
+        <p>Seguridad de la Información 2026-II</p>
+      </div>
+
+      <div class="card">
+        <h2>Ingrese el texto a cifrar</h2>
+
+        <label for="modo">Modo</label>
+        <select id="modo" onchange="actualizarBoton()">
+          <option value="cifrar">Cifrar</option>
+          <option value="analizar">Analizar</option>
+        </select>
+
+        <div id="opcionesCifrado">
+          <label for="algoritmo">Algoritmo</label>
+          <select id="algoritmo">
+            <option value="cesar">César</option>
+            <option value="afin">Afín</option>
+            <option value="vigenere">Vigenère</option>
+          </select>
+
+          <label for="clave">Clave</label>
+          <input type="text" id="clave" placeholder="Ingrese la clave" />
+        </div>
+
+        <label for="texto">Texto</label>
+        <textarea
+          id="texto"
+          placeholder="Escriba aquí el texto original..."
+        ></textarea>
+
+        <button id="btnAccion" onclick="analizar()">
+          ❀ Realizar Cifrado ❀
+        </button>
+      </div>
+
+      <div id="resultado"></div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
